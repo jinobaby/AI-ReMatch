@@ -1,0 +1,82 @@
+:root {
+  --gradient-dark:
+    radial-gradient(ellipse at center, rgba(152, 75, 254, 0.15) 0%, rgba(28, 21, 38, 0.0) 70%),
+    linear-gradient(135deg, #1C1526 0%, #412D6D 100%);
+  --gradient-light: linear-gradient(90deg, #984BFE 0%, #C799FD 100%);
+  --color-dark: #1C1526;
+  --color-purple-dark: #412D6D;
+  --color-light: #F4EBFF;
+  --color-purple: #984BFE;
+  --color-purple-light: #C799FD;
+}
+
+/* font Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Cabinet Grotesk', sans-serif;
+}
+
+.section-home {
+  background: var(--gradient-dark);
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* align-items: center; */
+  padding: 10px 20px;
+}
+
+.home-text {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.button-cart {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  font-weight: 600;
+}
+
+.button-cart:hover {
+  background-color: red;
+}
+
+.address-buy-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.insider-area {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.insider-area textarea,
+input {
+  width: 400px;
+  height: 30px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-weight: 400;
+}
