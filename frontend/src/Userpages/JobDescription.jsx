@@ -3,7 +3,6 @@ import { useNavigate, useLocation } from 'react-router-dom'
 
 function JobDescription() {
     const [jdText, setJdText] = useState('')
-    const [error, setError] = useState('')
     const navigate = useNavigate()
     const location = useLocation()
     const { files } = location.state || {}
@@ -13,7 +12,6 @@ function JobDescription() {
     // Submit resumes + JD to backend
     const handleAnalyze = async () => {
         if (jdText.trim().length === 0 || !files || files.length === 0) return
-        setError('')
         // Navigate to loading page and pass files + JD
         navigate('/loading', { state: { files, jdText } })
     }
@@ -178,5 +176,4 @@ function JobDescription() {
         </div>
     )
 }
-
 export default JobDescription

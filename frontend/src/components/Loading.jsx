@@ -20,7 +20,8 @@ function Loading() {
                     { headers: { 'Content-Type': 'multipart/form-data' } }
                 )
                 navigate('/results', { state: { rankedResumes: response.data } })
-            } catch (err) {
+            } catch (error) {
+                console.error(error)
                 navigate('/job-description', { state: { files, jdText, error: 'Failed to analyze resumes. Please try again.' } })
             }
         }
@@ -29,7 +30,7 @@ function Loading() {
     }, [])
 
     return (
-        <div style={{background:"red", height:"100%", width:"100%", display:"flex", justifyContent:"center", alignItems:"center"}}>
+        <div style={{ background: "red", height: "100%", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
 
             <div
                 style={{
