@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import '../style/UserHome.css'
+import { useNavigate } from 'react-router-dom'
 
 const MAX_FILES = 5
 const MAX_SIZE_MB = 2
@@ -8,6 +9,7 @@ function Home() {
   const [files, setFiles] = useState([])
   const [error, setError] = useState('')
   const fileInputRef = useRef(null)
+  const navigate = useNavigate()
 
   const handleFiles = (selectedFiles) => {
     let newFiles = Array.from(selectedFiles)
@@ -32,6 +34,16 @@ function Home() {
     handleFiles(e.dataTransfer.files)
   }
   const handleDragOver = (e) => e.preventDefault()
+
+  // Add this function to navigate to Job Description page
+  const goToJobDescription = () => {
+    if (files.length === 0) {
+      setError('Please upload at least one resume file.')
+      return
+    }
+    navigate('/job-description', { state: { files } })
+  }
+
 
   return (
     <div style={{
@@ -60,7 +72,7 @@ function Home() {
         }}>
           The Smarter Way To<br />Optimize Your Resume
         </h1>
-        
+
         <p style={{
           color: 'var(--color-purple-light)',
           marginBottom: '32px',
@@ -105,7 +117,7 @@ function Home() {
               Browse
             </span>
           </label>
-          
+
           <input
             type="file"
             id="resumeUpload"
@@ -115,7 +127,7 @@ function Home() {
             style={{ display: 'none' }}
             onChange={e => handleFiles(e.target.files)}
           />
-          
+
           <div style={{ listStyle: 'none', padding: 0 }}>
             {files.length === 0 && <span>No files selected.</span>}
             {files.length > 0 && (
@@ -159,6 +171,25 @@ function Home() {
         }}>
           *Next, you'll need to upload or paste the Job Description
         </p>
+        <button
+          onClick={goToJobDescription}
+          style={{
+            marginTop: '32px',
+            background: 'linear-gradient(90deg, #984BFE 0%, #C799FD 100%)',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '999px',
+            fontWeight: 600,
+            fontSize: '1.1em',
+            padding: '12px 36px',
+            cursor: files.length === 0 ? 'not-allowed' : 'pointer',
+            opacity: files.length === 0 ? 0.6 : 1,
+            transition: 'background 0.2s'
+          }}
+          disabled={files.length === 0}
+        >
+          Next: Paste Job Description
+        </button>
       </div>
     </div>
   )
