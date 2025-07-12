@@ -1,0 +1,85 @@
+/* Employee Layout Styles */
+.employee-layout {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background elements */
+.employee-background-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.employee-shape {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: employeeFloat 6s ease-in-out infinite;
+}
+
+.employee-shape-1 {
+  width: 100px;
+  height: 100px;
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.employee-shape-2 {
+  width: 150px;
+  height: 150px;
+  top: 70%;
+  right: 5%;
+  animation-delay: 2s;
+}
+
+.employee-shape-3 {
+  width: 80px;
+  height: 80px;
+  bottom: 10%;
+  left: 15%;
+  animation-delay: 4s;
+}
+
+@keyframes employeeFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Main content area */
+.employee-main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .employee-shape-1 {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .employee-shape-2 {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .employee-shape-3 {
+    width: 50px;
+    height: 50px;
+  }
+}

@@ -1,0 +1,4 @@
+.admin-home {
+    background: var(--gradient-dark);
+    min-height: 100vh;
+}
