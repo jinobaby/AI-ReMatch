@@ -15,18 +15,34 @@ mongoose.connect(process.env.MongoDB_URI)
         console.error('Error connecting to MongoDB:', err);
     })
 
-
-
 // Middleware
 app.use(express.json());
 app.use(cors());
 
 var AdminRouter = require('./src/routes/AdminRouter');
-var UserRouter = require ('./src/routes/UserRouter');
-
+var UserRouter = require('./src/routes/UserRouter');
+var ResumeRouter = require('./src/routes/ResumeRouter'); 
 
 app.use('/Admin', AdminRouter);
-app.use('/User', UserRouter)
+app.use('/User', UserRouter);
+app.use('/Resume', ResumeRouter); 
+
+// Error handling middleware for multer
+app.use((error, req, res, next) => {
+    if (error.code === 'LIMIT_FILE_SIZE') {
+        return res.status(400).json({ 
+            success: false, 
+            message: 'File size too large. Maximum 2MB per file.' 
+        });
+    }
+    if (error.code === 'LIMIT_FILE_COUNT') {
+        return res.status(400).json({ 
+            success: false, 
+            message: 'Too many files. Maximum 5 files allowed.' 
+        });
+    }
+    next(error);
+});
 
 app.listen(5000, () => {
     console.log('Server is running on port 5000');
