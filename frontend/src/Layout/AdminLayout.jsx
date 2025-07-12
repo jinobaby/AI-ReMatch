@@ -1,15 +1,17 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import AdminNavbar from '../components/AdminNavbar'
+import AdminNavbarBar from '../components/AdminNavbar'
 import AdminFootbar from '../components/AdminFootbar'
 
 function AdminLayout() {
   return (
-    <div>
-      <AdminNavbar />
-      
-      <Outlet />
-      
+    <div className="layout-wrapper">
+      <AdminNavbarBar />
+      <main className="content-wrapper">
+        <div className="container">
+          <Outlet />
+        </div>
+      </main>
       <AdminFootbar />
     </div>
   )

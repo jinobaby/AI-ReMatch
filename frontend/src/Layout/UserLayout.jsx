@@ -5,14 +5,14 @@ import Footer from '../components/UserFooter'
 
 function Userlayout() {
   return (
-    <div>
-        
-        <UserNav/>
-
-        <Outlet/>
-
-        <Footer/>
-
+    <div className="layout-wrapper">
+      <UserNav />
+      <main className="content-wrapper">
+        <div className="container">
+          <Outlet />
+        </div>
+      </main>
+      <Footer />
     </div>
   )
 }

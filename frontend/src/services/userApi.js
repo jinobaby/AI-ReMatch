@@ -22,7 +22,6 @@ export const userLoginApi = async ( data ) => {
     }
 }
 
-// get all product 
 export const allProduct = async () => {
     try {
         var response = await basicRequest.get('/Product/All-product')
@@ -32,7 +31,6 @@ export const allProduct = async () => {
     }
 }
 
-//add to cart
 export const addcartApi = async (data) => {
     try {
         var response = await UserRequest.post('/Cart/add-to-cart', data)
@@ -43,7 +41,6 @@ export const addcartApi = async (data) => {
     }
 }
 
-// get cart items
 export const getCartProduct = async (id) => {
     try {
         var response = await UserRequest.get(`/Cart/get-cart/${id}`)

@@ -2,8 +2,6 @@ var router = require('express').Router()
 var UserSchema = require('../models/UserSchema')
 var crypto = require('crypto-js')
 var JWT = require('jsonwebtoken')
-
-//user signup router
 router.post('/Signup', async (req, res) => {
     try {
 
@@ -30,7 +28,6 @@ router.post('/Signup', async (req, res) => {
     }
 })
 
-// User Login
 router.post('/login', async (req, res) => {
     console.log(req.body);
     try {

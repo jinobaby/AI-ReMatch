@@ -13,7 +13,6 @@ import {
 
 import storage from 'redux-persist/lib/storage';
 
-//slice file import
 import AdminLoginSlice from './adminSlice';
 import UserLoginSlice from './userSlice';
 
