@@ -1,8 +1,3 @@
-/**
- * Role-Specific AI Enhancement Service
- * Provides precise, context-aware resume analysis for web development sub-roles
- */
-
 class RoleSpecificAnalyzer {
     constructor() {
         this.roleDefinitions = this.initializeRoleDefinitions()
@@ -10,9 +5,7 @@ class RoleSpecificAnalyzer {
         this.contextPatterns = this.initializeContextPatterns()
     }
 
-    /**
-     * Enhanced role-specific analysis
-     */
+    // Enhanced role-specific analysis
     async analyzeResumesForRole(jobTitle, jobDescription, resumes) {
         console.log(`🎯 Starting role-specific analysis for: ${jobTitle}`)
         
@@ -38,9 +31,7 @@ class RoleSpecificAnalyzer {
         return enhancedResults
     }
 
-    /**
-     * Initialize role definitions with realistic skill requirements
-     */
+    // Initialize role definitions with realistic skill requirements
     initializeRoleDefinitions() {
         return {
             'frontend_developer': {
@@ -160,9 +151,7 @@ class RoleSpecificAnalyzer {
         }
     }
 
-    /**
-     * Categorize role based on job title and description
-     */
+    // Categorize role based on job title and description
     categorizeRole(jobTitle, jobDescription) {
         const title = jobTitle.toLowerCase()
         const description = jobDescription.toLowerCase()
@@ -206,9 +195,7 @@ class RoleSpecificAnalyzer {
         return null // Unknown role, use generic analysis
     }
 
-    /**
-     * Perform role-specific resume analysis
-     */
+    // Perform role-specific resume analysis
     async performRoleSpecificAnalysis(resumes, jobDescription, roleConfig) {
         const results = []
         
@@ -221,9 +208,7 @@ class RoleSpecificAnalyzer {
         return results.sort((a, b) => b.roleSpecificScore - a.roleSpecificScore)
     }
 
-    /**
-     * Analyze individual resume against role requirements
-     */
+    // //Analyze individual resume against role requirements
     async analyzeResumeForRole(resume, roleConfig, jobDescription) {
         const resumeText = resume.text.toLowerCase()
         
@@ -259,9 +244,8 @@ class RoleSpecificAnalyzer {
         }
     }
 
-    /**
-     * Calculate role-specific skill scoring with proper weighting
-     */
+    //Calculate role-specific skill scoring with proper weighting
+     
     calculateRoleSpecificSkillScore(resumeText, roleConfig) {
         const skillMatches = {
             critical: [],
@@ -310,9 +294,7 @@ class RoleSpecificAnalyzer {
         }
     }
 
-    /**
-     * Enhanced skill detection with context awareness
-     */
+    // Enhanced skill detection with context awareness
     skillFoundInResume(skill, resumeText) {
         // Simple keyword matching first
         if (resumeText.includes(skill.toLowerCase())) {
@@ -326,9 +308,7 @@ class RoleSpecificAnalyzer {
         )
     }
 
-    /**
-     * Get skill variations for better matching
-     */
+    // Get skill variations for better matching
     getSkillVariations(skill) {
         const variations = {
             'JavaScript': ['js', 'javascript', 'ecmascript', 'es6', 'es2015'],
@@ -342,9 +322,7 @@ class RoleSpecificAnalyzer {
         return variations[skill] || [skill]
     }
 
-    /**
-     * Analyze experience context patterns
-     */
+    // Analyze experience context patterns
     analyzeExperienceContext(resumeText, roleConfig) {
         const matches = []
         
@@ -365,9 +343,8 @@ class RoleSpecificAnalyzer {
         }
     }
 
-    /**
-     * Check for exclusion patterns (role mismatches)
-     */
+
+    // Check for exclusion patterns (role mismatches)
     checkExclusionPatterns(resumeText, roleConfig) {
         const flags = []
         
@@ -388,9 +365,7 @@ class RoleSpecificAnalyzer {
         }
     }
 
-    /**
-     * Calculate final weighted score
-     */
+    // Calculate final weighted score
     calculateFinalScore(skillAnalysis, contextAnalysis, exclusionCheck) {
         const baseScore = Math.max(60, 
             skillAnalysis.score * 0.7 + // 70% weight on skills
@@ -404,9 +379,7 @@ class RoleSpecificAnalyzer {
         return Math.round(finalScore)
     }
 
-    /**
-     * Generate role-specific explanation
-     */
+    // Generate role-specific explanation
     generateRoleSpecificExplanation(score, skillAnalysis, contextAnalysis, exclusionCheck) {
         let explanation = `Role-specific analysis: ${score}% match. `
         
@@ -440,9 +413,8 @@ class RoleSpecificAnalyzer {
         return explanation
     }
 
-    /**
-     * Traditional scoring for comparison
-     */
+    
+    // Traditional scoring for comparison
     calculateTraditionalScore(resumeText, jobDescription) {
         const jdWords = jobDescription.toLowerCase().split(/\W+/).filter(w => w.length > 3)
         const resumeWords = resumeText.split(/\W+/)
