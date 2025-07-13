@@ -29,19 +29,19 @@ function App() {
           </Route>
           <Route path='/Signup' element={<UserSignup />} />
           <Route path='/Login' element={<UserLogin />} />
-          
+
           {/* Role Selection - standalone page */}
           <Route element={<UserPrivate> <RoleSelection /> </UserPrivate>} path='/role-selection' />
-          
+
           {/* Employee Routes with Employee Layout */}
           <Route element={<UserPrivate> <EmployeeLayout /> </UserPrivate>}>
             <Route element={<EmployeeDashboard />} path='/employee-dashboard' />
             <Route element={<EmployeeResults />} path='/employee-results' />
           </Route>
-          
+
           {/* Recruiter Routes with User Layout */}
-          <Route element={<UserPrivate> <Userlayout/> </UserPrivate>}>
-            <Route element={<Home/>} path='/home'/>
+          <Route element={<UserPrivate> <Userlayout /> </UserPrivate>}>
+            <Route element={<Home />} path='/home' />
             <Route element={<JobDescription />} path='/job-description' />
             <Route element={<Loading />} path='/loading' />
             <Route element={<Results />} path='/results' />

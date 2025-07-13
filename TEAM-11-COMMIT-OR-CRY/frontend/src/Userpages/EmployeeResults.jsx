@@ -46,15 +46,15 @@ function EmployeeResults() {
 
             } catch (error) {
                 console.error('❌ Analysis failed:', error)
-                
+
                 let errorMessage = 'Failed to analyze resume. Please try again.'
-                
+
                 if (error.response?.data?.message) {
                     errorMessage = error.response.data.message
                 } else if (error.message) {
                     errorMessage = error.message
                 }
-                
+
                 setError(errorMessage)
             } finally {
                 setIsLoading(false)
