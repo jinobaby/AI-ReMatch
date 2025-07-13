@@ -24,13 +24,13 @@ function UserNavbarBar() {
       ]
     } else if (userRole === 'recruiter') {
       return [
-        { path: '/home', label: 'Dashboard', icon: '🏠' },
+        { path: '/home', label: 'Upload-Area', icon: '🏠' },
         { path: '/role-selection', label: 'Switch Role', icon: '🔄' }
       ]
     } else {
       // Default links when role is not set
       return [
-        { path: '/home', label: 'Home', icon: '🏠' },
+        { path: '/employee-dashboard', label: 'Upload-Area', icon: '🏠' },
         { path: '/role-selection', label: 'Choose Role', icon: '👤' }
       ]
     }
