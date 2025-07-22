@@ -79,7 +79,6 @@ We welcome improvements, bug fixes, suggestions, and new features from the commu
 
 - Be respectful and constructive.
 - Discuss large changes in issues first.
-- Follow the [Code of Conduct](CODE_OF_CONDUCT.md) (if available).
 
 ---
 
