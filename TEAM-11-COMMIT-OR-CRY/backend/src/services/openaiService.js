@@ -1,12 +1,22 @@
 const OpenAI = require('openai')
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY
-})
+// Initialize OpenAI client (only if API key is available)
+let openai = null;
+if (process.env.OPENAI_API_KEY) {
+    try {
+        openai = new OpenAI({
+            apiKey: process.env.OPENAI_API_KEY
+        })
+    } catch (error) {
+        console.warn('⚠️ OpenAI client initialization failed:', error.message)
+    }
+}
 
 // Test OpenAI connection
 async function testOpenAIConnection() {
+    if (!openai) {
+        return false;
+    }
     try {
         const completion = await openai.chat.completions.create({
             model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
@@ -92,6 +102,9 @@ Remember: Score each resume independently based on absolute criteria, not relati
 
 //Process resumes with OpenAI API
 async function rankResumesWithOpenAI(jobDescription, resumes) {
+    if (!openai) {
+        throw new Error('OpenAI client not initialized. OPENAI_API_KEY is missing or invalid.')
+    }
     try {
         console.log(`🤖 Starting OpenAI analysis for ${resumes.length} resumes...`)
 
